@@ -42,6 +42,19 @@ typing; they must never make a decision.
    corrected spec only for real misses.
 6. **Verify.** Run typecheck/build/tests (or `verify.md` recipes). Report
    results honestly.
+7. **Quality gate.** One final Opus agent (`model: "opus"`), single pass,
+   fast — this is a check, not an audit. Give it the user's original request
+   as a feature checklist plus the list of changed files. It answers two
+   questions only:
+   - **Completeness**: for each requested feature, is there real working code
+     behind it (not a stub)? Mark each done/missing/partial.
+   - **UI quality**: do the touched screens/components follow `ui.md` (or, if
+     none, basic standards: consistent spacing, real loading/empty/error
+     states, no generic-AI-slop layout, sane responsive behavior)?
+   It returns a short verdict list, nothing else. Fable fixes small issues
+   directly, respawns an implementation agent only for a genuinely missing
+   feature, and skips this step entirely for non-feature work (pure refactors,
+   config, one-off scripts).
 
 ## Spec format
 

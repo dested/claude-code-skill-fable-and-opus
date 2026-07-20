@@ -33,6 +33,9 @@ Opt-in only — it never triggers on its own:
    Overlapping-file tasks serialize or get worktree isolation.
 5. Fable reviews every diff, fixes small deviations itself, then runs
    typecheck/tests.
+6. Quality gate: one fast Opus pass checks every requested feature actually
+   exists (no stubs) and the UI doesn't suck (ui.md conformance, real
+   loading/empty/error states). Verdict list only; Fable fixes what it flags.
 
 ## Update
 

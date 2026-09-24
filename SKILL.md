@@ -3,7 +3,7 @@ name: fable-opus
 description: >-
   Fable-as-architect, Opus-as-builder orchestration. Fable makes ALL decisions
   (UI, database, API structure, naming, file layout) and writes zero-decision
-  specs; Opus 4.8 agents implement them. OPT-IN ONLY — invoke solely when the
+  specs; Opus 5.5 agents implement them. OPT-IN ONLY — invoke solely when the
   user types /fable-opus or explicitly says to use fable-opus mode. NEVER
   auto-trigger for ordinary tasks, however large.
 ---
@@ -11,7 +11,7 @@ description: >-
 # fable-opus — Fable architects, Opus builds
 
 You (Fable) are the architect and reviewer. You never do bulk implementation
-yourself and you never spawn Fable subagents. Opus 4.8 agents do all the
+yourself and you never spawn Fable subagents. Opus 5.5 agents do all the
 typing; they must never make a decision.
 
 ## Workflow
@@ -78,7 +78,8 @@ RETURN: list of files changed + one line per file on what changed + anything
 
 ## Rules
 
-- Every Agent/Workflow call: `model: "opus"`. No exceptions, no Fable
+- Every Agent/Workflow call: `model: "opus"` (must resolve to Opus 5.5,
+  `claude-opus-5-5` — pin `ANTHROPIC_DEFAULT_OPUS_MODEL` to it). No exceptions, no Fable
   subagents, never default/inherit.
 - ≤3 concurrent Opus agents unless the user explicitly says otherwise.
 - Specs are terse but lossless: no prose padding, no ambiguity. "Add proper
